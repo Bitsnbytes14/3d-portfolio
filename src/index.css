@@ -97,7 +97,8 @@ body {
   height: var(--vh);
   margin: auto;
   margin-top: 50px;
-  margin-bottom: -100px;
+  margin-bottom: 0px;
+  z-index: 0;
 }
 
 .techstack h2 {
@@ -119,5 +120,135 @@ body {
 @media screen and (max-width: 900px) {
   .techstack h2 {
     font-size: 40px;
+  }
+}
+
+/* Layout and Section Fixes */
+.padding-y {
+  padding: 100px 0;
+}
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* TechStack Overhaul */
+.techstack-section {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+}
+.techstack-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.techstack-content {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  width: 100%;
+}
+.techstack-content h2 {
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.tech-box {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.tech-box:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(40, 40, 40, 0.8);
+  box-shadow: 0 10px 20px rgba(194, 164, 255, 0.15);
+}
+.tech-box img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.tech-box:hover img {
+  transform: scale(1.1);
+}
+@media (min-width: 768px) {
+  .techstack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .techstack-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Work Grid Overhaul */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+.work-box-grid {
+  background: #111;
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Contact Overhaul */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+.contact-title {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
